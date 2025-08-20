@@ -38,7 +38,8 @@ public class Main implements Callable<Integer> {
     }
 
     public OpenMetadataService createService() {
-        return new OpenMetadataService(serverUrl, jwtToken);
+        OpenMetadataConfiguration config = new OpenMetadataConfiguration(serverUrl, jwtToken);
+        return new OpenMetadataService(config.createOpenMetadataGateway());
     }
 }
 
